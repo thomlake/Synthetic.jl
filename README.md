@@ -13,7 +13,7 @@ Synthetic.jl defines an abstract type `SyntheticTask` and two abstract  subtypes
 ## Synthetic Tasks
 
 ### `AddTask <: RegressionTask`
-Given a sequence of vectors `[x[t,1], x[t,2]]` where `x[t,1]` is uniformly distributed in `(0,1)` and `x[t,2] == 1` for exactly two times `t` and `0` for all other times, output the sum of `x[t,1]` where `x[t,2] == 1`. This task is described in the paper [Orthogonal RNNs and Long-Memory Tasks](http://arxiv.org/abs/1602.06662).
+Given a sequence of vectors `[x[t,1], x[t,2]]` where `x[t,1]` is uniformly distributed in `(0,1)` and `x[t,2] == 1` for exactly two time steps and `0` for all others, output the sum of `x[t,1]` where `x[t,2] == 1`. This task is described in the paper [Orthogonal RNNs and Long-Memory Tasks](http://arxiv.org/abs/1602.06662).
 
 ```julia
 julia> rand(Synthetic.AddTask(5))
