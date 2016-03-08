@@ -1,5 +1,5 @@
 # Synthetic.jl
-Synthetic.jl is a Julia package for generating synthetic data. It is designed to be used for testing and sanity checking Machine Learning algorithms.
+Synthetic.jl is a Julia package for generating synthetic data for testing and sanity checking Machine Learning algorithms.
 
 ## Overview
 Synthetic.jl defines an abstract type `SyntheticTask` and two abstract  subtypes: `RegressionTask` and `ClassificationTask`. The following functions are defined for each `SyntheticTask`:
