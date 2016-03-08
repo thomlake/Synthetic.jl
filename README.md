@@ -6,8 +6,8 @@ Synthetic.jl defines an abstract type `SyntheticTask` and two abstract  subtypes
  - `rand(task)`: returns a randomly sampled (input, output) pair.
  - `rand(task, n::Int)`: returns `n` randomly sampled (input, output) pair.
  - `size(task)`: returns a tuple `(num_input_dims, num_output_dims)`.
- - `size(task, 1)`: return the number of input dimensions.
- - `size(task, 2)`: return the number of output dimensions.
+ - `size(task, 1)`: returns the number of input dimensions.
+ - `size(task, 2)`: returns the number of output dimensions.
  - `eltype(task)`: returns a type `Tuple{input_type, output_type}`.
 
 ## Synthetic Tasks
