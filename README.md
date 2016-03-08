@@ -4,7 +4,7 @@ Synthetic.jl is a Julia package for generating synthetic data for testing and sa
 ## Overview
 Synthetic.jl defines an abstract type `SyntheticTask` and two abstract  subtypes: `RegressionTask` and `ClassificationTask`. The following functions are defined for each `SyntheticTask`:
  - `rand(task::SyntheticTask)`: returns a randomly sampled `(input, output)` pair.
- - `rand(task::SyntheticTask, n::Int)`: returns `n` randomly sampled `(input, output)` pair.
+ - `rand(task::SyntheticTask, n::Int)`: returns `n` randomly sampled `(input, output)` pairs.
  - `size(task::SyntheticTask)`: returns a tuple `(num_input_dims, num_output_dims)`.
  - `size(task::SyntheticTask, 1)`: returns the number of input dimensions.
  - `size(task::SyntheticTask, 2)`: returns the number of output dimensions.
