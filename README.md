@@ -33,7 +33,16 @@ julia> rand(Synthetic.CopyTask(m, n, K))
 The input consists of a random sequence of `1`s and `2`s. The output at each time `t` is given by `(cumsum(input[1:t] - 1) % 2) + 1`.
 
 ```julia
-julia> x, y =rand(Synthetic.XORTask(10))
+julia> rand(Synthetic.XORTask(10))
 ([1,1,2,2,1,1,1,1,2,1],[1,1,2,1,1,1,1,1,2,2])
 ```
+
+### `MixtureTask <: ClassificationTask`
+Predict which mixture component a random variable was drawn from. By default uses a uniform mixture of Gaussians with components parameters drawn from a normal inverse Wishart distribution.
+
+```julia
+julia> rand(Synthetic.MixtureTask(3, 4))
+([-0.548,-0.395,0.169],1)
+```
+
 

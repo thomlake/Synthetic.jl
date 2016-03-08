@@ -8,7 +8,7 @@ Base.rand{T<:SyntheticTask}(task::T, n::Int) = eltype(task)[rand(task) for i = 1
 
 include("copy.jl")
 include("add.jl")
-include("mog.jl")
+include("mixture.jl")
 include("xor.jl")
 
 end # module Synthetic
