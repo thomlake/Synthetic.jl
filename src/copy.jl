@@ -4,19 +4,18 @@ title: Orthogonal RNNs and Long-Memory Tasks
 paper: http://arxiv.org/pdf/1602.06662v1.pdf
 """
 immutable CopyTask <: ClassificationTask
+    delay::UnitRange{Int}
+    capacity::UnitRange{Int}
     dim::Int
-    prefix_range::UnitRange{Int}
-    suffix_range::UnitRange{Int}
-    function CopyTask(d, pr, sr)
-        d > 2 || error("d must be greater than 2")
-        (last(pr) >= first(pr) && last(pr) > 0) || error("not enough prefix timesteps")
-        (last(sr) >= first(sr) && last(sr) > 0) || error("not enough suffix timesteps")
-        return new(d, pr, sr)
+    function CopyTask(delay, capacity, dim)
+        dim > 2 || error("dim must be greater than 2")
+        (last(capacity) >= first(capacity) && last(capacity) > 0) || error("invalid capacity range $capacity")
+        (last(delay) >= first(delay) && last(delay) > 0) || error("invalid delay range $delay")
+        return new(delay, capacity, dim)
     end
 end
 
-CopyTask(t::Int) = CopyTask(10, 10:10, t:t)
-
+CopyTask(delay::Int=100, capacity::Int=10, dim::Int=10) = CopyTask(delay:delay, capacity:capacity, dim)
 
 Base.size(task::CopyTask) = (task.dim, task.dim)
 
@@ -33,8 +32,8 @@ end
 Base.eltype(task::CopyTask) = Tuple{Vector{Int},Vector{Int}}
 
 function Base.rand(task::CopyTask)
-    t1 = rand(task.prefix_range)
-    t2 = rand(task.suffix_range)
+    t1 = rand(task.capacity)
+    t2 = rand(task.delay)
     
     prefix = rand(1:task.dim - 2, t1)   # sequence to remember
     blanks = fill(task.dim - 1, t2 - 1) # blanks
