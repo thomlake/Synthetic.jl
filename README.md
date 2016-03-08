@@ -24,7 +24,7 @@ julia> rand(Synthetic.AddTask(5))
 Let `Σ = {1, 2, ..., K}` be an alphabet of `K` symbols, `b=K+1` represent a blank symbol, and `f=K+2` a flag symbol. The input consists of `n` symbols in `Σ`, followed by `m-1` blank symbols, the flag symbol, and then `n` blank symbols. The output is `n + m` blank symbols followed by the first `n` symbols in the input sequence. This task is described in the paper [Orthogonal RNNs and Long-Memory Tasks](http://arxiv.org/abs/1602.06662).
 
 ```julia
-julia> m, n, K = 4, 3, 2 # delay, capacity, |Σ| + |{b,f}|
+julia> m, n, K = 4, 3, 4 # delay, capacity, |Σ| + |{b,f}|
 julia> rand(Synthetic.CopyTask(m, n, K))
 ([1,2,1,3,3,3,4,3,3,3],[3,3,3,3,3,3,3,1,2,1])
 ```
